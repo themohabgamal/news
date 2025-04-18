@@ -40,21 +40,21 @@ class Tab1Content extends StatelessWidget {
           ),
 
           // List of Articles
-          ListView.builder(
-            itemCount: 6, // Number of articles
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              return ArticleCard(
-                imageUrl:
-                    'https://images.pexels.com/photos/97050/pexels-photo-97050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Placeholder image
-                title: 'Article Title ${index + 1}',
-                onReadMore: () {
-                  // Handle "Read More" button click
-                  print('Read More clicked for Article ${index + 1}');
-                },
-              );
-            },
-          ),
+          // ListView.builder(
+          //   itemCount: 6, // Number of articles
+          //   scrollDirection: Axis.vertical,
+          //   itemBuilder: (context, index) {
+          //     return ArticleCard(
+          //       imageUrl:
+          //           'https://images.pexels.com/photos/97050/pexels-photo-97050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Placeholder image
+          //       title: 'Article Title ${index + 1}',
+          //       onReadMore: () {
+          //         // Handle "Read More" button click
+          //         print('Read More clicked for Article ${index + 1}');
+          //       },
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

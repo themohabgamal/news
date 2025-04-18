@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news/features/home/data/news_model.dart';
 
 import 'article_card.dart';
 
 class LatestArticlesHorizontalListView extends StatelessWidget {
+  final List<News> data;
   const LatestArticlesHorizontalListView({
     super.key,
+    required this.data,
   });
 
   @override
@@ -13,15 +16,13 @@ class LatestArticlesHorizontalListView extends StatelessWidget {
       height: 260,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 6,
+        itemCount: 4,
         itemBuilder: (context, index) {
           return Container(
             width: 180,
             margin: EdgeInsets.symmetric(horizontal: 8),
             child: ArticleCard(
-              imageUrl:
-                  'https://images.pexels.com/photos/97050/pexels-photo-97050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-              title: 'The 12 most intriguing animal discoveries of 2021',
+              newsItem: data[index],
               onReadMore: () {
                 print('Read More clicked for Article ${index + 1}');
               },

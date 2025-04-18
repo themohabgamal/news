@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news/features/home/data/news_model.dart';
 import 'package:news/features/home/presentation/widgets/home_top_stories_section.dart';
 import 'Home_latest_articles_section.dart';
 
 class HomeTabBarContent extends StatelessWidget {
+  final List<News> data;
   const HomeTabBarContent({
     super.key,
+    required this.data,
   });
 
   @override
@@ -16,7 +19,14 @@ class HomeTabBarContent extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Column(
-              children: [HomeLatestArticlesSection(), HomeTopStoriesSection()],
+              children: [
+                HomeLatestArticlesSection(
+                  data: data,
+                ),
+                HomeTopStoriesSection(
+                  data: data,
+                )
+              ],
             ),
           ),
           Center(child: Text('Content for Tab 2')),

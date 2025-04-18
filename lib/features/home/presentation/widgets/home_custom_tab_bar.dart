@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:news/core/theme/app_colors.dart';
 import 'package:news/core/theme/app_text_styles.dart';
 
+import '../../data/models/category_model.dart';
+
 class HomeCustomTabBar extends StatelessWidget {
+  final List<Category> data;
+
   const HomeCustomTabBar({
     super.key,
+    required this.data,
   });
 
   @override
@@ -26,10 +31,10 @@ class HomeCustomTabBar extends StatelessWidget {
         labelColor: Colors.white,
         unselectedLabelColor: Colors.white,
         tabs: [
-          Tab(text: 'Science'),
-          Tab(text: 'Environment'),
-          Tab(text: 'Animals'),
-          Tab(text: 'Travel'),
+          Tab(text: data[0].name),
+          Tab(text: data[1].name),
+          Tab(text: data[2].name),
+          Tab(text: data[3].name),
         ],
       ),
     );

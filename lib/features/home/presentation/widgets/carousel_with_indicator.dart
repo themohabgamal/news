@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:news/core/theme/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../data/models/banner_response_model.dart';
+
 class CarouselWithIndicator extends StatefulWidget {
-  const CarouselWithIndicator({super.key});
+  final List<BannerData> banners;
+
+  const CarouselWithIndicator({super.key, required this.banners});
 
   @override
   _CarouselWithIndicatorState createState() => _CarouselWithIndicatorState();
@@ -41,7 +45,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
               });
             },
           ),
-          items: imageUrls.map((url) {
+          items: widget.banners.map((banner) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -50,7 +54,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     image: DecorationImage(
-                      image: NetworkImage(url),
+                      image: NetworkImage(banner.imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -65,7 +69,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
           padding: const EdgeInsets.only(bottom: 10.0),
           child: SmoothPageIndicator(
             controller: PageController(initialPage: _currentIndex),
-            count: imageUrls.length,
+            count: widget.banners.length,
             effect: WormEffect(
               dotHeight: 10,
               dotWidth: 10,

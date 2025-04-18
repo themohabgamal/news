@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/theme/app_colors.dart';
 import 'package:news/core/theme/app_text_styles.dart';
+import 'package:news/features/home/data/news_model.dart';
 
 class TopStoriesVerticalListView extends StatelessWidget {
+  final List<News> data;
+
   const TopStoriesVerticalListView({
     super.key,
+    required this.data,
   });
 
   @override
@@ -29,7 +33,7 @@ class TopStoriesVerticalListView extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
-                    'https://images.pexels.com/photos/97050/pexels-photo-97050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    data[index].imageUrl,
                     width: 100,
                     height: 100,
                     fit: BoxFit.cover,
@@ -48,7 +52,7 @@ class TopStoriesVerticalListView extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          'The 12 most intriguing animal discoveries of 2021 about what they did in amesterdam',
+                          data[index].title,
                           style: AppTextStyles.font12RegularWhite,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
